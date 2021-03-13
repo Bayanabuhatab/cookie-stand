@@ -1,146 +1,176 @@
   
 'use strict';
-S
-var container = document.getElementById('stores');
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let hour=["6am","7am","8am","9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm","7pm"];
+// let store =[];
+// let name =["store"]
+// let inHourlyCustomers=[23,3,11,20,2];
+// let maxHourlyCustomers =[65,24,38,38,16];
+// let avrgCookieSales=[6.3,1.2,3.7,2.3,4.6];  
+
+// function Store(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) 
+//   this.minHourlyCustomers = minHourlyCustomers;
+//   this.maxHourlyCustomers = maxHourlyCustomers;
+//   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
+//   this.name = name;
+//   this.cookiesPerHourArr = [];
+//   this.totalDailyCookies = 0;
+
+let seatle = {
+  avrg :6.3,
+  max :65 ,
+  min : 23, 
+  cityname: 'seatle',
+  sum : 0 ,
+  customerberhouer:function(){
+    let customerRandom = (Math.floor(Math.random() * (this.max - this.min+1) + this.min));
+    return customerRandom;
+  },
+  cookiesberhouer:function(){
+    let cookiesRandom = (Math.floor(this.customerberhouer() * this.avrg));
+    return cookiesRandom ;
+  },
+  total:function(){
+    for (let index = 0; index < hour.length; index++) {
+      this.sum = this.sum + this.cookiesberhouer();
+    }
+    return this.sum ;
+  },
+
+};
+console.log(seatle);
+console.log(seatle.max);
+console.log(seatle.cookiesberhouer());
 
 
-function randomNumCust (min, max, avrg) {
-  var randPerCust = Math.floor(Math.random() * (max - min + 1) + min);
-  return Math.floor(randPerCust * avrg);
-}
 
-// Standalone function
-function addElement(tag, container, text) {
-  var element = document.createElement(tag);
-  container.appendChild(element);
-  element.textContent = text;
-  return element;
-}
+let Tokyo = {
+  avrg: 1.2,
+  max : 24 ,
+  min : 3 , 
+  cityname: 'Tokyo',
+  sum : 0 ,
+  customerberhouer:function(){
+    let customerRandom = (Math.floor(Math.random() * (this.max - this.min+1) + this.min));
+    return customerRandom;
+  },
+  cookiesberhouer:function(){
+    let cookiesRandom = (Math.floor(this.customerberhouer() * this.avrg));
+    return cookiesRandom ;
+  },
+  total:function(){
+    for (let index = 0; index < hour.length; index++) {
+      this.sum = this.sum + this.cookiesberhouer();
+    }
+    return this.sum ;
+  },
+
+};
+
+let Dubai = {
+  avrg: 3.7,
+  max : 38 ,
+  min : 11 , 
+  cityname: 'Dubai',
+  sum : 0 ,
+  customerberhouer:function(){
+    let customerRandom = (Math.floor(Math.random() * (this.max - this.min+1) + this.min));
+    return customerRandom;
+  },
+  cookiesberhouer:function(){
+    let cookiesRandom = (Math.floor(this.customerberhouer() * this.avrg));
+    return cookiesRandom ;
+  },
+  total:function(){
+    for (let index = 0; index < hour.length; index++) {
+      this.sum = this.sum + this.cookiesberhouer();
+    }
+    return this.sum ;
+  },
+
+};
 
 
 
-// CREATING CONSTRUCTOR FOR STORE
-function Store (name, minCustomer, maxCustomer, avrgCookieSales) {
-  this.name = name;
-  this.minCustomer = minCustomer;
-  this.maxCustomer = maxCustomer;
-  this.avrgCookieSales = avrgCookieSales;
-  this.cookiesSold = [];
-  this.total = 0;
-  // this.location = location;
-  // this.phone = phone;
-  // this.startHour = startHour;
-  // this.endHour = endHour;
+let Paris  = {
+  avrg:2.3 ,
+  max : 3.8,
+  min : 20,
+  cityname: 'Paris',
+  sum : 0 ,
+  customerberhouer:function(){
+    let customerRandom = (Math.floor(Math.random() * (this.max - this.min+1) + this.min));
+    return customerRandom;
+  },
+  cookiesberhouer:function(){
+    let cookiesRandom = (Math.floor(this.customerberhouer() * this.avrg));
+    return cookiesRandom ;
+  },
+  total:function(){
+    for (let index = 0; index < hour.length; index++) {
+      this.sum = this.sum + this.cookiesberhouer();
+    }
+    return this.sum ;
+  },
 
-  // num of Cookies a store has to make a DAY + total
-  for (var i = 0; i < hours.length; i++) {
-    this.cookiesSold.push(randomNumCust(this.minCustomer, this.maxCustomer, this.avrgCookieSales))
-    this.total += this.cookiesSold[i];
+};
+
+
+let lima  = {
+  avrg: 4.6,
+  max : 16,
+  min : 2,
+  cityname: 'lima',
+  sum : 0 ,
+  customerberhouer:function(){
+    let customerRandom = (Math.floor(Math.random() * (this.max - this.min+1) + this.min));
+    return customerRandom;
+  },
+  cookiesberhouer:function(){
+    let cookiesRandom = (Math.floor(this.customerberhouer() * this.avrg));
+    return cookiesRandom ;
+  },
+  total:function(){
+    for (let index = 0; index < hour.length; index++) {
+      this.sum = this.sum + this.cookiesberhouer();
+    }
+    return this.sum ;
+  },
+
+};
+
+
+
+
+
+
+
+
+
+
+function dom(obj) {
+  let first = document.getElementById('bayan');
+  let unorderlist=document.createElement('ul');
+  // let list =document.createElement('li');
+  first.appendChild(unorderlist);
+  let sec = document.createElement('p');
+  unorderlist.appendChild(sec);
+  sec.textContent=obj.cityname;
+  for (let c = 0 ;c<hour.length;c++)
+
+  {
+    let item =document.createElement('li');
+    unorderlist.appendChild(item);
+    item.textContent=hour[c]+ ': ' +obj.cookiesberhouer()+' cookies';
   }
-}
-
-// Creates a container
-var article = addElement('article', container);
-
-// Creates a table
-var tableElem = addElement('table', article);
-
-// Creates a header row
-var headerRowElem = addElement('tr', tableElem);
-
-addElement('th', headerRowElem, ' ');
-
-for (var i = 0; i < 14; i++) {
-  addElement('th', headerRowElem, hours[i]);
-}
-
-addElement('th', headerRowElem, 'Daily Location Total');
-
-
-// ADD BODY OF TABLE
-Store.prototype.render = function(container) {
-  var dataRowElem = addElement('tr', tableElem);
-
-  addElement('td', dataRowElem, this.name);
-
-  for (var i = 0; i < 14; i++) {
-    addElement('td', dataRowElem, this.cookiesSold[i]);
-    // hourlyObj.hours[i].push(this.cookiesSold[i]);
-  }
-  
-  // ***** This add total as last columm
-  addElement('td', dataRowElem, this.total);
+  let item =document.createElement('li');
+  unorderlist.appendChild(item);
+  item.textContent='total: ' +obj.total()+ ' cookies';
+  console.log(obj.total);
 
 }
 
-var storeContainer = document.getElementById('stores');
-
-var allStores = [];
-
-// UPLOADING EACH STORE
-allStores.push(new Store('Seattle',23,65,6.3));
-allStores.push(new Store('Tokyo',3,4,1.2));
-allStores.push(new Store('Dubai', 11,	38,	3.7));
-allStores.push(new Store('Paris',	20,	38,	2.3));
-allStores.push(new Store('Lima', 2,	16,	4.6));
-
-
-// Iterating and rendering each store
-for(var i = 0; i < allStores.length; i++) {
-  var eachStore = allStores[i];
-  eachStore.render(storeContainer);
-}
-
-
-var dataRowElemm2 = addElement('tr', tableElem);
-
-addElement('td', dataRowElemm2, 'Totals');
-
-// NEED TO ADD 15 TOTALS OF COLUMN SUM the dollar sign is a place holder
-for (var i = 0; i < 15; i++) {
-  addElement('td', dataRowElemm2, '$');
-}
-
-
-// *************ADDING NEW STORE******************
-
-var form = document.getElementById('new-store');
-// Store (name, minCustomer, maxCustomer, avrgCookieSales)
-Store.prototype.render = function() {
-  var tbody = document.getElementById('store-entries')
-  var row = document.createElement('tr');
-  tbody.appendChild(row);
-
-  var nameTD = document.createElement('td');
-  row.appendChild(nameTD);
-  nameTD.textContent = this.name;
-
-  var salesTD = document.createElement('td');
-  row.appendChild(salesTD);
-  salesTD.textContent = this.cookiesSold;
-}
-// *************END ADDING NEW STORE******************
-
-
-// *************EVENT HANDLER******************
-
-function submitHandler(event) {
-  event.preventDefault();
-  var newStore = new Store(event.target.storeName.value, parseInt(event.target.minCust.value), parseInt(event.target.maxCust.value), parseInt(event.target.avrCookies.value));
-  console.log('newStore: ', newStore)
-  event.target.reset();
-
-  newStore.render();
-}
-
-console.log('event.target.storeName.value: ', event.target.storeName.value);
-console.log('event.target.minCust.value: ', event.target.minCust.value);
-console.log('event.target.maxCust.value: ', event.target.maxCust.value);
-console.log('event.target.avrCookies.value: ', event.target.avrCookies.value);
-
-
-
-form.addEventListener('submit', submitHandler);
-
-// *************END EVENT HANDLER******************
+dom(seatle);
+dom (Tokyo);
+dom(Dubai);
+dom(Paris);
+dom(lima);
